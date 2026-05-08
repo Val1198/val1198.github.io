@@ -1,237 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Valerie Rukobo — Software Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0a192f;--navy2:#112240;--accent:#2563eb;--accent2:#3b82f6;--accent3:#93c5fd;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--border:#1e3a5f;--white:#fff;--green:#10b981;--teal:#0d9488;}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,25,47,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;}
-.nav-logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--accent3);}
-.nav-links{display:flex;gap:28px;}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:.2s;}
-.nav-links a:hover{color:var(--accent3);}
-.nav-btn{padding:8px 20px;background:transparent;border:1.5px solid var(--accent);color:var(--accent3);border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;}
-.hero{min-height:100vh;display:flex;align-items:center;padding:0 10%;}
-.hero-tag{font-size:13px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-weight:500;}
-.hero-name{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1.1;margin-bottom:16px;color:var(--white);}
-.hero-name span{color:var(--accent3);}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:600;color:var(--text2);margin-bottom:24px;}
-.hero-desc{font-size:15px;color:var(--text2);line-height:1.8;max-width:540px;margin-bottom:36px;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-primary{padding:13px 28px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;transition:.2s;border:none;cursor:pointer;}
-.btn-secondary{padding:12px 28px;background:transparent;border:1.5px solid var(--accent);color:var(--accent3);border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;transition:.2s;}
-.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:48px;border-top:1px solid var(--border);}
-.hero-stat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--accent3);}
-.hero-stat-label{font-size:12px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
-section{padding:100px 10%;}
-.section-tag{font-size:12px;color:var(--accent3);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;font-weight:500;}
-.section-title{font-family:'Syne',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--white);margin-bottom:48px;}
-.section-title span{color:var(--accent3);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-.about-text p{font-size:15px;color:var(--text2);line-height:1.9;margin-bottom:16px;}
-.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
-.highlight{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:center;gap:12px;}
-.h-icon{width:36px;height:36px;border-radius:8px;background:rgba(37,99,235,0.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.h-text{font-size:13px;font-weight:500;color:var(--text);}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.skill-card{background:var(--navy2);border:1px solid var(--border);border-radius:14px;padding:24px;transition:.2s;}
-.skill-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.skill-icon{font-size:28px;margin-bottom:14px;}
-.skill-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:12px;}
-.skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
-.skill-tag{font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(37,99,235,0.12);color:var(--accent3);font-weight:500;border:1px solid rgba(37,99,235,0.2);}
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-.project-card{background:var(--navy2);border:1px solid var(--border);border-radius:16px;padding:28px;transition:.2s;position:relative;overflow:hidden;}
-.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));}
-.project-card:hover{border-color:var(--accent);transform:translateY(-3px);}
-.project-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
-.project-icon{font-size:28px;}
-.project-link{font-size:12px;color:var(--accent3);text-decoration:none;padding:4px 10px;border:1px solid var(--border);border-radius:6px;}
-.project-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:10px;}
-.project-desc{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px;}
-.project-tag{font-size:11px;color:var(--green);}
-.exp-list{display:flex;flex-direction:column;}
-.exp-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--border);}
-.exp-item:last-child{border-bottom:none;}
-.exp-date{font-size:12px;color:var(--text3);padding-top:4px;}
-.exp-role{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.exp-company{font-size:13px;color:var(--accent3);margin-bottom:12px;font-weight:500;}
-.exp-desc{font-size:13px;color:var(--text2);line-height:1.7;}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-.contact-info p{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:28px;}
-.contact-links{display:flex;flex-direction:column;gap:14px;}
-.contact-link{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:.2s;}
-.contact-link:hover{border-color:var(--accent);}
-.cl-icon{width:36px;height:36px;border-radius:8px;background:rgba(37,99,235,0.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.cl-label{font-size:12px;color:var(--text3);}
-.cl-value{font-size:13px;color:var(--text);font-weight:500;}
-.contact-form{display:flex;flex-direction:column;gap:16px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.form-group label{display:block;font-size:12px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
-.form-group input,.form-group textarea{width:100%;background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;}
-.form-group textarea{resize:vertical;min-height:120px;}
-footer{padding:32px 10%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.footer-text{font-size:13px;color:var(--text3);}
-.footer-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--accent3);}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Valerie Rukobo - Software Engineer focused on AI, IoT, cybersecurity, data systems, and practical digital products.">
+  <meta name="keywords" content="Valerie Rukobo, software engineer, AI engineer, IoT, cybersecurity, data analysis, Zimbabwe, Harare">
+  <meta name="author" content="Valerie Rukobo">
+  <meta property="og:title" content="Valerie Rukobo - Software Engineer">
+  <meta property="og:description" content="AI, IoT, cybersecurity, and web systems built with clarity, security, and real-world usefulness.">
+  <meta property="og:image" content="https://val1198.github.io/assets/valerie-rukobo.jpg">
+  <meta property="og:url" content="https://val1198.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Valerie Rukobo | Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0d1b2d;
+      --panel-strong: #13243a;
+      --text: #f7fbff;
+      --muted: #a9b8cc;
+      --soft: #71829a;
+      --line: rgba(220, 232, 247, .14);
+      --accent: #3b82f6;
+      --accent-2: #14b8a6;
+      --accent-3: #f59e0b;
+      --shadow: 0 24px 70px rgba(2, 8, 23, .42);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --panel-strong: #eef4fb;
+      --text: #0f172a;
+      --muted: #475569;
+      --soft: #64748b;
+      --line: rgba(15, 23, 42, .13);
+      --shadow: 0 20px 60px rgba(15, 23, 42, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(115deg, rgba(20, 184, 166, .12), transparent 30%),
+        linear-gradient(245deg, rgba(59, 130, 246, .16), transparent 42%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 20;
+      transform: translateY(-140%);
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: 72px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 12px;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--panel);
+      color: var(--text);
+      outline: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-button,
+    .menu-button {
+      min-width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 12px;
+    }
+
+    .menu-button {
+      display: none;
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .button,
+    button.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, .24);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(37, 99, 235, .3);
+      outline: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      border-color: var(--accent-2);
+      background: color-mix(in srgb, var(--accent-2) 16%, transparent);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 96px 24px;
+    }
+
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent-3);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      font-size: 5.4rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      max-width: 760px;
+      font-size: 3.4rem;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      padding-top: 82px;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(290px, .65fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 24px;
+    }
+
+    .lead {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.25rem;
+    }
+
+    .hero-actions,
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .availability {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: color-mix(in srgb, var(--panel) 76%, transparent);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .pill.hot {
+      border-color: color-mix(in srgb, var(--accent-2) 42%, var(--line));
+      color: var(--text);
+    }
+
+    .profile-card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 96%, #fff 4%), var(--panel-strong));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center 18%;
+      background: var(--panel-strong);
+    }
+
+    .profile-status {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .profile-status span {
+      color: var(--accent-2);
+      font-weight: 800;
+    }
+
+    .profile-meta {
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .profile-meta strong {
+      display: block;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 56px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .stat {
+      background: color-mix(in srgb, var(--panel) 88%, transparent);
+      padding: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .section-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      padding: 28px;
+      box-shadow: 0 12px 36px rgba(2, 8, 23, .12);
+    }
+
+    .focus-list,
+    .timeline,
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .focus-list li,
+    .contact-list a {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 18px;
+    }
+
+    .focus-list strong,
+    .timeline strong {
+      display: block;
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project.featured {
+      grid-column: 1 / -1;
+      min-height: 0;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 32px;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 45%),
+        var(--panel);
+    }
+
+    .project {
+      display: grid;
+      min-height: 340px;
+      align-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 26px;
+      box-shadow: 0 12px 34px rgba(2, 8, 23, .14);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .project:hover {
+      border-color: color-mix(in srgb, var(--accent) 58%, var(--line));
+      transform: translateY(-4px);
+    }
+
+    .project-top {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-points {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-points li {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--panel-strong) 70%, transparent);
+      color: var(--muted);
+      padding: 14px;
+      font-size: 14px;
+    }
+
+    .project-points strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .project-label {
+      width: fit-content;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent-2) 16%, transparent);
+      color: var(--text);
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+    }
+
+    .skill {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(2, 8, 23, .1);
+    }
+
+    .skill p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .service {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(2, 8, 23, .1);
+    }
+
+    .service-number {
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+    }
+
+    .timeline li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .date {
+      color: var(--accent-3);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .credentials {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .credential {
+      border-left: 3px solid var(--accent);
+      background: var(--panel);
+      padding: 18px;
+    }
+
+    .credential strong {
+      display: block;
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .contact-list a {
+      display: grid;
+      gap: 4px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-list span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text);
+      font: inherit;
+      padding: 13px 14px;
+    }
+
+    textarea {
+      min-height: 142px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    .icon-button:focus-visible,
+    .menu-button:focus-visible {
+      border-color: var(--accent-2);
+      outline: 3px solid color-mix(in srgb, var(--accent-2) 24%, transparent);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner a {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 920px) {
+      h1 {
+        font-size: 4.25rem;
+      }
+
+      h2 {
+        font-size: 2.8rem;
+      }
+
+      .menu-button {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 72px 16px auto 16px;
+        display: none;
+        grid-template-columns: 1fr;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        padding: 10px;
+      }
+
+      body.menu-open .nav-links {
+        display: grid;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 420px;
+      }
+
+      .stats,
+      .grid.three,
+      .grid.two,
+      .project.featured,
+      .credentials {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project.featured {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.85rem;
+      }
+
+      h2 {
+        font-size: 2.15rem;
+      }
+
+      .lead {
+        font-size: 1.08rem;
+      }
+
+      .section {
+        padding: 72px 18px;
+      }
+
+      .nav {
+        padding: 0 18px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-actions .button,
+      .card-actions .button,
+      button.button {
+        width: 100%;
+      }
+
+      .stats,
+      .grid.three,
+      .grid.two,
+      .field-grid,
+      .timeline li,
+      .project.featured,
+      .credentials {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .project,
+      .panel {
+        padding: 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nav-logo">VR.</div>
-  <div class="nav-links">
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-  </div>
-  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
-</nav>
-
-<section class="hero" id="home">
-  <div style="max-width:700px;">
-    <div class="hero-tag">Software Engineer · AI · IoT · Cybersecurity</div>
-    <h1 class="hero-name">Valerie <span>Rukobo</span></h1>
-    <h2 class="hero-title">Building Intelligent Systems</h2>
-    <p class="hero-desc">Postgraduate-trained software engineer specialising in AI, IoT, and Cybersecurity. Passionate about building smart, secure, and scalable technology solutions — from anomaly detection systems to intelligent chatbots.</p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">View My Work</a>
-      <a href="#contact" class="btn-secondary">Get In Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="hero-stat-val">3+</div><div class="hero-stat-label">Years Experience</div></div>
-      <div><div class="hero-stat-val">10+</div><div class="hero-stat-label">Projects Built</div></div>
-      <div><div class="hero-stat-val">5+</div><div class="hero-stat-label">Certifications</div></div>
-      <div><div class="hero-stat-val">2</div><div class="hero-stat-label">Countries Worked</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="about" style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="section-tag">About Me</div>
-  <div class="section-title">Who I <span>Am</span></div>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm a software engineer based in Harare, Zimbabwe, with a postgraduate degree in Computer Applications specialising in AI, IoT, and Cybersecurity. I combine deep technical knowledge with a passion for building systems that make a real difference.</p>
-      <p>My experience spans digital literacy instruction, AI engineering, project management, and web development. I've worked across India and Zimbabwe, bringing a global perspective to local challenges.</p>
-      <p>Outside of tech, I lead faith community programmes and am passionate about empowering others through education and technology.</p>
-      <div class="about-highlights">
-        <div class="highlight"><div class="h-icon">🎓</div><div class="h-text">Postgraduate in Computer Applications</div></div>
-        <div class="highlight"><div class="h-icon">🌍</div><div class="h-text">Based in Harare, Zimbabwe</div></div>
-        <div class="highlight"><div class="h-icon">🤖</div><div class="h-text">AI & Machine Learning Focus</div></div>
-        <div class="highlight"><div class="h-icon">🔐</div><div class="h-text">Cybersecurity Specialist</div></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#home">Valerie<span>.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </div>
-    </div>
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:16px;padding:28px;">
-      <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:20px;">Quick Facts</div>
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--border);"><span style="font-size:13px;color:var(--text3);">Location</span><span style="font-size:13px;color:var(--text);font-weight:500;">Harare, Zimbabwe</span></div>
-        <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--border);"><span style="font-size:13px;color:var(--text3);">Degree</span><span style="font-size:13px;color:var(--text);font-weight:500;">Postgrad, Computer Applications</span></div>
-        <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--border);"><span style="font-size:13px;color:var(--text3);">Email</span><span style="font-size:13px;color:var(--accent3);">valerierukobo@gmail.com</span></div>
-        <div style="display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--border);"><span style="font-size:13px;color:var(--text3);">GitHub</span><span style="font-size:13px;color:var(--accent3);">github.com/Val1198</span></div>
-        <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;color:var(--text3);">Phone</span><span style="font-size:13px;color:var(--green);font-weight:600;">+263 789 217 004</span></div>
+      <div class="nav-actions">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+        <a class="button secondary nav-cta" href="#contact">Hire me</a>
+        <button class="menu-button" id="menu-toggle" type="button" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
       </div>
-    </div>
-  </div>
-</section>
+    </nav>
+  </header>
 
-<section id="skills">
-  <div class="section-tag">Expertise</div>
-  <div class="section-title">Skills & <span>Technologies</span></div>
-  <div class="skills-grid">
-    <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-name">Artificial Intelligence</div><div class="skill-tags"><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">NLP</span><span class="skill-tag">Machine Learning</span><span class="skill-tag">Deep Learning</span></div></div>
-    <div class="skill-card"><div class="skill-icon">📡</div><div class="skill-name">IoT & Systems</div><div class="skill-tags"><span class="skill-tag">Wireshark</span><span class="skill-tag">Anomaly Detection</span><span class="skill-tag">Network Protocols</span><span class="skill-tag">Smart Home</span></div></div>
-    <div class="skill-card"><div class="skill-icon">🔐</div><div class="skill-name">Cybersecurity</div><div class="skill-tags"><span class="skill-tag">Network Security</span><span class="skill-tag">Threat Detection</span><span class="skill-tag">Data Privacy</span><span class="skill-tag">Risk Analysis</span></div></div>
-    <div class="skill-card"><div class="skill-icon">💻</div><div class="skill-name">Web Development</div><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Django</span><span class="skill-tag">React</span><span class="skill-tag">JavaScript</span><span class="skill-tag">REST APIs</span></div></div>
-    <div class="skill-card"><div class="skill-icon">🗄️</div><div class="skill-name">Data & Databases</div><div class="skill-tags"><span class="skill-tag">SQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">Data Analysis</span></div></div>
-    <div class="skill-card"><div class="skill-icon">⚙️</div><div class="skill-name">Tools & Platforms</div><div class="skill-tags"><span class="skill-tag">Git & GitHub</span><span class="skill-tag">Linux</span><span class="skill-tag">Docker</span><span class="skill-tag">VS Code</span></div></div>
-  </div>
-</section>
+  <main id="main">
+    <section class="section hero" id="home">
+      <div class="section-inner">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Software Engineer - AI - IoT - Cybersecurity</p>
+            <h1>Software engineer building secure AI, fintech, and web systems.</h1>
+            <p class="lead">I am Valerie Rukobo, a Harare-based software engineer who turns research, product ideas, and operational needs into polished digital systems that are practical, secure, and ready to present.</p>
+            <div class="hero-actions">
+              <a class="button" href="#projects">View projects</a>
+              <a class="button secondary" href="mailto:valerierukobo@gmail.com?subject=Portfolio%20opportunity">Email me</a>
+              <a class="button secondary" href="https://github.com/Val1198" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <div class="availability" aria-label="Current focus areas">
+              <span class="pill hot">Open to software, data, AI, and ICT roles</span>
+              <span class="pill">Harare, Zimbabwe</span>
+              <span class="pill">Remote-friendly</span>
+            </div>
+          </div>
 
-<section id="projects" style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="section-tag">Portfolio</div>
-  <div class="section-title">Featured <span>Projects</span></div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-header"><div class="project-icon">📡</div><a href="https://github.com/Val1198" class="project-link">GitHub ↗</a></div>
-      <div class="project-title">IoT Smart Home Anomaly Detection</div>
-      <div class="project-desc">Research project using Wireshark to monitor and detect anomalies in smart home IoT network traffic. Implements ML models to identify suspicious patterns in real time.</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="project-tag">Python</span> &nbsp;<span class="project-tag">Wireshark</span> &nbsp;<span class="project-tag">ML</span> &nbsp;<span class="project-tag">IoT</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-icon">🧠</div><a href="https://github.com/Val1198/ai-nlp-chatbot" class="project-link">GitHub ↗</a></div>
-      <div class="project-title">AI NLP Intent-Based Chatbot</div>
-      <div class="project-desc">NLP chatbot using TensorFlow and Keras. Classifies user intents, extracts entities, and generates contextual responses using a trained neural network.</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="project-tag">TensorFlow</span> &nbsp;<span class="project-tag">Keras</span> &nbsp;<span class="project-tag">NLP</span> &nbsp;<span class="project-tag">Deep Learning</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-icon">📚</div><a href="https://github.com/Val1198" class="project-link">GitHub ↗</a></div>
-      <div class="project-title">Dupleix E-Learning Platform</div>
-      <div class="project-desc">Full-stack e-learning platform with Django featuring role-based auth, course management, lesson uploads, and student enrollment systems.</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="project-tag">Django</span> &nbsp;<span class="project-tag">Python</span> &nbsp;<span class="project-tag">SQLite</span> &nbsp;<span class="project-tag">Full Stack</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-header"><div class="project-icon">🔬</div><a href="https://github.com/Val1198" class="project-link">GitHub ↗</a></div>
-      <div class="project-title">Agentic AI Supply Chain Research</div>
-      <div class="project-desc">Research on agentic AI for supply chain resilience in emerging economies, aligned with Zimbabwe's Smart Zimbabwe 2030 and National AI Strategy 2026–2030.</div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="project-tag">Agentic AI</span> &nbsp;<span class="project-tag">Research</span> &nbsp;<span class="project-tag">Supply Chain</span></div>
-    </div>
-  </div>
-</section>
+          <aside class="profile-card" aria-label="Valerie profile summary">
+            <img src="assets/valerie-rukobo.jpg" alt="Valerie Rukobo profile image">
+            <div class="profile-meta">
+              <div>
+                <strong>Valerie Rukobo</strong>
+                <p>Software Engineer focused on AI, IoT, cybersecurity, and full-stack web systems.</p>
+              </div>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">React</span>
+              </div>
+              <div class="profile-status">
+                <div><span>Available</span><br>Software, AI, data, ICT</div>
+                <div><span>Based</span><br>Harare, Zimbabwe</div>
+              </div>
+            </div>
+          </aside>
+        </div>
 
-<section id="experience">
-  <div class="section-tag">Career</div>
-  <div class="section-title">Work <span>Experience</span></div>
-  <div class="exp-list">
-    <div class="exp-item"><div class="exp-date">2022 — 2023</div><div><div class="exp-role">Part-Time Software Engineer</div><div class="exp-company">EDOOFA · India</div><div class="exp-desc">Worked on technical projects supporting educational technology platforms. Collaborated with cross-functional teams on software development and system administration tasks.</div></div></div>
-    <div class="exp-item"><div class="exp-date">2021 — 2022</div><div><div class="exp-role">Digital Literacy Instructor (Volunteer)</div><div class="exp-company">Smile Foundation India · India</div><div class="exp-desc">Delivered digital literacy training to underserved communities. Designed curriculum covering computer fundamentals, internet safety, and basic software tools. Empowered over 100 learners.</div></div></div>
-    <div class="exp-item"><div class="exp-date">2021</div><div><div class="exp-role">Web Development Intern</div><div class="exp-company">Webs Utility Global LLP · India</div><div class="exp-desc">Assisted in developing and maintaining web applications. Gained hands-on experience with front-end and back-end development.</div></div></div>
-    <div class="exp-item"><div class="exp-date">2020 — 2021</div><div><div class="exp-role">Autism Awareness Volunteer</div><div class="exp-company">Ashish Foundation · India</div><div class="exp-desc">Supported technology-based awareness initiatives. Applied digital tools to enhance communication and outreach programmes for autism education.</div></div></div>
-  </div>
-</section>
-
-<section style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 10%;">
-  <div class="section-tag">Credentials</div>
-  <div class="section-title">Certifications & <span>Education</span></div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px;"><div style="font-size:24px;margin-bottom:12px;">🏆</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;">Google Project Management</div><div style="font-size:12px;color:var(--accent3);">Google · Coursera (Mar 2025)</div></div>
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px;"><div style="font-size:24px;margin-bottom:12px;">🏆</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;">IBM AI Engineering</div><div style="font-size:12px;color:var(--accent3);">IBM · Coursera (Jun 2025)</div></div>
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px;"><div style="font-size:24px;margin-bottom:12px;">🤖</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;">Claude 101</div><div style="font-size:12px;color:var(--accent3);">Anthropic · AI Literacy & Prompt Engineering</div></div>
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px;"><div style="font-size:24px;margin-bottom:12px;">⚡</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;">Claude Code in Action</div><div style="font-size:12px;color:var(--accent3);">Anthropic · Agentic Coding with Claude</div></div>
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px;"><div style="font-size:24px;margin-bottom:12px;">🎓</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;">MCA · Software Engineering</div><div style="font-size:12px;color:var(--accent3);">GGSIPU · AI · IoT · Cybersecurity</div></div>
-    <div style="background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px;"><div style="font-size:24px;margin-bottom:12px;">🎓</div><div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;">BCA · Computer Applications</div><div style="font-size:12px;color:var(--accent3);">PDM University · Delhi-NCR</div></div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="section-tag">Get In Touch</div>
-  <div class="section-title">Let's <span>Connect</span></div>
-  <div class="contact-grid">
-    <div>
-      <div class="contact-info"><p>I'm actively looking for opportunities in software engineering, data analysis, ICT management, and AI-related roles. Whether you have a project in mind or just want to connect, feel free to reach out!</p></div>
-      <div class="contact-links">
-        <a href="mailto:valerierukobo@gmail.com" class="contact-link"><div class="cl-icon">✉️</div><div><div class="cl-label">Email</div><div class="cl-value">valerierukobo@gmail.com</div></div></a>
-        <a href="tel:+263789217004" class="contact-link"><div class="cl-icon">📞</div><div><div class="cl-label">Phone</div><div class="cl-value">+263 789 217 004</div></div></a>
-        <a href="https://github.com/Val1198" class="contact-link"><div class="cl-icon">💻</div><div><div class="cl-label">GitHub</div><div class="cl-value">github.com/Val1198</div></div></a>
+        <div class="stats" aria-label="Portfolio highlights">
+          <div class="stat"><strong>12+</strong><span>Projects built</span></div>
+          <div class="stat"><strong>3+</strong><span>Years experience</span></div>
+          <div class="stat"><strong>5+</strong><span>Certifications</span></div>
+          <div class="stat"><strong>2</strong><span>Countries worked</span></div>
+        </div>
       </div>
-    </div>
-    <div class="contact-form">
-      <div class="form-row">
-        <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"/></div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
-      </div>
-      <div class="form-group"><label>Subject</label><input type="text" placeholder="Job opportunity / Collaboration"/></div>
-      <div class="form-group"><label>Message</label><textarea placeholder="Tell me about the opportunity..."></textarea></div>
-      <button class="btn-primary" style="width:100%;padding:14px;">Send Message</button>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  <div class="footer-logo">VR.</div>
-  <div class="footer-text">© 2026 Valerie Rukobo · Software Engineer · Harare, Zimbabwe</div>
-  <div style="display:flex;gap:16px;"><a href="https://github.com/Val1198" style="font-size:13px;color:var(--text3);text-decoration:none;">GitHub</a></div>
-</footer>
+    <section class="section" id="about">
+      <div class="section-inner split">
+        <div class="section-copy">
+          <p class="eyebrow">About</p>
+          <h2>Engineering with a clear eye for people, risk, and delivery.</h2>
+        </div>
+        <div class="section-copy">
+          <p>My work sits at the intersection of software engineering, applied AI, IoT security, and digital education. I enjoy translating complex technical ideas into systems that people can actually use, trust, and maintain.</p>
+          <p>I have worked across India and Zimbabwe in software development, digital literacy, web projects, and community technology initiatives. That mix shaped how I build: practical first, security-aware, and grounded in real user needs.</p>
+          <ul class="focus-list">
+            <li><strong>AI and automation</strong><p>NLP chatbots, model training workflows, data processing, and applied research.</p></li>
+            <li><strong>Secure connected systems</strong><p>IoT monitoring, anomaly detection, network analysis, and privacy-conscious design.</p></li>
+            <li><strong>Web platforms</strong><p>Django, JavaScript, React, REST APIs, authentication, and learning management tools.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <div class="section-copy">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Production-minded projects across fintech, AI, web platforms, and security.</h2>
+        </div>
+        <div class="grid two" style="margin-top: 34px;">
+          <article class="project featured">
+            <div class="project-top">
+              <span class="project-label">Featured Fintech Project</span>
+              <h3>ZimPay Digital Payments Platform</h3>
+              <p>A professional payment platform designed around secure account access, clean transaction workflows, and a trustworthy user experience for local digital payments. ZimPay brings fintech product thinking, backend structure, and polished interface design into one complete build.</p>
+              <div class="tags"><span class="tag">Fintech</span><span class="tag">Python</span><span class="tag">Django</span><span class="tag">JavaScript</span><span class="tag">Secure Auth</span><span class="tag">Payments UX</span></div>
+            </div>
+            <ul class="project-points" aria-label="ZimPay project highlights">
+              <li><strong>Real product flow</strong> Account, transaction, and payment experiences designed to feel usable and complete.</li>
+              <li><strong>Security-first thinking</strong> Emphasis on authenticated access, data handling, and clear user confirmation states.</li>
+              <li><strong>Professional presentation</strong> Built to communicate business value, not just code or classroom functionality.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-label">IoT Security</span>
+              <h3>Smart Home Anomaly Detection</h3>
+              <p>Network monitoring research using Wireshark and machine learning techniques to identify unusual smart home traffic patterns and support safer connected environments.</p>
+            </div>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Wireshark</span><span class="tag">Machine Learning</span><span class="tag">IoT</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-label">Applied AI</span>
+              <h3>Intent-Based NLP Chatbot</h3>
+              <p>A TensorFlow and Keras chatbot that classifies user intent, maps responses, and supports an end-to-end natural language workflow.</p>
+            </div>
+            <div>
+              <div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">NLP</span><span class="tag">Deep Learning</span></div>
+              <div class="card-actions" style="margin-top: 20px;"><a class="button secondary" href="https://github.com/Val1198/ai-nlp-chatbot" target="_blank" rel="noreferrer">View repository</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-label">Full Stack</span>
+              <h3>Dupleix E-Learning Platform</h3>
+              <p>A Django learning platform with role-based access, course management, lesson uploads, and student enrollment workflows for structured online learning delivery.</p>
+            </div>
+            <div class="tags"><span class="tag">Django</span><span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">Auth</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top">
+              <span class="project-label">Research</span>
+              <h3>Agentic AI for Supply Chain Resilience</h3>
+              <p>Research exploring how agentic AI can support supply chain planning and resilience in emerging economies, with attention to Zimbabwe's digital transformation goals.</p>
+            </div>
+            <div class="tags"><span class="tag">Agentic AI</span><span class="tag">Research</span><span class="tag">Supply Chain</span><span class="tag">Strategy</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-inner">
+        <div class="split">
+          <div class="section-copy">
+            <p class="eyebrow">Skills</p>
+            <h2>A practical stack for intelligent and secure products.</h2>
+          </div>
+          <div class="grid three">
+            <div class="skill"><h3>AI and Data</h3><p>TensorFlow, Keras, NLP, machine learning, data analysis, model evaluation.</p></div>
+            <div class="skill"><h3>Backend</h3><p>Python, Django, REST APIs, authentication, SQL, SQLite, MySQL.</p></div>
+            <div class="skill"><h3>Frontend</h3><p>HTML, CSS, JavaScript, React, responsive interfaces, accessibility basics.</p></div>
+            <div class="skill"><h3>Security</h3><p>Network security, threat detection, anomaly analysis, risk-aware development.</p></div>
+            <div class="skill"><h3>IoT Systems</h3><p>Wireshark, network protocols, sensor data processing, connected-device monitoring.</p></div>
+            <div class="skill"><h3>Delivery</h3><p>Git, GitHub, Linux, Docker, technical documentation, project management.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-inner">
+        <div class="section-copy">
+          <p class="eyebrow">What I Build</p>
+          <h2>Complete digital systems with clean interfaces and practical engineering.</h2>
+          <p class="lead">I focus on projects where the product has to be understandable, reliable, and professional enough to show to users, employers, partners, or stakeholders.</p>
+        </div>
+        <div class="grid three" style="margin-top: 34px;">
+          <div class="service"><span class="service-number">01</span><h3>Web Platforms</h3><p>Django and JavaScript applications with authentication, dashboards, content workflows, and responsive user interfaces.</p></div>
+          <div class="service"><span class="service-number">02</span><h3>AI Features</h3><p>Applied AI workflows such as NLP intent classification, data processing, model integration, and research-to-product translation.</p></div>
+          <div class="service"><span class="service-number">03</span><h3>Security-Aware Systems</h3><p>Secure thinking for access control, network monitoring, anomaly detection, privacy, and safer connected-device experiences.</p></div>
+          <div class="service"><span class="service-number">04</span><h3>Fintech Interfaces</h3><p>Payment, wallet, transaction, and account experiences designed with trust, clarity, and confirmation states in mind.</p></div>
+          <div class="service"><span class="service-number">05</span><h3>Data and Reporting</h3><p>SQL-backed views, operational dashboards, reports, and analysis workflows for decision-making and monitoring.</p></div>
+          <div class="service"><span class="service-number">06</span><h3>Technical Delivery</h3><p>Documentation, GitHub-ready code, deployment-friendly structure, and collaboration practices that make projects easier to maintain.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-inner split">
+        <div class="section-copy">
+          <p class="eyebrow">Experience</p>
+          <h2>Technical work shaped by education, collaboration, and service.</h2>
+          <div class="credentials">
+            <div class="credential"><strong>MCA - Software Engineering</strong><p>GGSIPU - AI, IoT, Cybersecurity</p></div>
+            <div class="credential"><strong>BCA - Computer Applications</strong><p>PDM University - Delhi-NCR</p></div>
+            <div class="credential"><strong>IBM AI Engineering</strong><p>IBM - Coursera</p></div>
+            <div class="credential"><strong>Google Project Management</strong><p>Google - Coursera</p></div>
+          </div>
+        </div>
+        <ol class="timeline">
+          <li><span class="date">2022 - 2023</span><div><strong>Part-Time Software Engineer - EDOOFA</strong><p>Supported educational technology work through software development, technical collaboration, and system administration tasks.</p></div></li>
+          <li><span class="date">2021 - 2022</span><div><strong>Digital Literacy Instructor - Smile Foundation India</strong><p>Delivered computer fundamentals, internet safety, and basic software training to underserved communities.</p></div></li>
+          <li><span class="date">2021</span><div><strong>Web Development Intern - Webs Utility Global LLP</strong><p>Built hands-on experience across front-end and back-end web development workflows.</p></div></li>
+          <li><span class="date">2020 - 2021</span><div><strong>Autism Awareness Volunteer - Ashish Foundation</strong><p>Supported digital outreach and awareness work using practical communication tools.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-inner split">
+        <div class="section-copy">
+          <p class="eyebrow">Contact</p>
+          <h2>Have a role, project, or collaboration in mind?</h2>
+          <p>I am actively looking for opportunities in software engineering, data analysis, ICT management, AI, and secure digital systems.</p>
+          <div class="contact-list">
+            <a href="mailto:valerierukobo@gmail.com"><span>Email</span>valerierukobo@gmail.com</a>
+            <a href="tel:+263789217004"><span>Phone</span>+263 789 217 004</a>
+            <a href="https://github.com/Val1198" target="_blank" rel="noreferrer"><span>GitHub</span>github.com/Val1198</a>
+            <a href="https://linkedin.com/in/valerie-rukobo" target="_blank" rel="noreferrer"><span>LinkedIn</span>linkedin.com/in/valerie-rukobo</a>
+          </div>
+        </div>
+
+        <form class="panel contact-form" id="contact-form">
+          <div class="field-grid">
+            <label>Name<input name="name" type="text" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label>Subject<input name="subject" type="text" required></label>
+          <label>Message<textarea name="message" required></textarea></label>
+          <button class="button" type="submit">Prepare email</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 Valerie Rukobo. Built for clarity, speed, and opportunity.</span>
+      <a href="#home">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.querySelector("#theme-toggle");
+    const menuToggle = document.querySelector("#menu-toggle");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const storedTheme = localStorage.getItem("theme");
+
+    if (storedTheme) {
+      document.documentElement.dataset.theme = storedTheme;
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem("theme", nextTheme);
+    });
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = document.body.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        document.body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open menu");
+      });
+    });
+
+    document.querySelector("#contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = encodeURIComponent(form.get("subject"));
+      const body = encodeURIComponent(
+        `Name: ${form.get("name")}\nEmail: ${form.get("email")}\n\n${form.get("message")}`
+      );
+
+      window.location.href = `mailto:valerierukobo@gmail.com?subject=${subject}&body=${body}`;
+      event.currentTarget.reset();
+    });
+  </script>
 </body>
 </html>
